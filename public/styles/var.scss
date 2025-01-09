@@ -1,0 +1,35 @@
+// VARIABLES GLOBALES POUR LE SITE
+@import 'fonctions.scss';
+
+$bleu: #0267C1;
+$gris: #E8EFF5;
+$gris-transparent: #E8EFF5DD;
+$rouge: #B22222;
+$rouge-c: #FFCCCC;
+$vert: #006400;
+$vert-c: #AADDAA;
+
+$noir: #000;
+$midbleu: lighten($bleu, 25);
+$white: #FFF;
+
+.btn-main {
+    @include bouton($bleu, 50%);
+    margin: 0 auto;
+}
+
+.btn-bleu {
+    @include bouton($bleu);
+}
+
+.btn-rouge {
+    @include bouton($rouge);
+}
+
+.flex {
+    display: flex;
+}
+
+.center {
+    justify-content: center;
+}

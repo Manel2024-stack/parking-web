@@ -1,0 +1,64 @@
+<header>
+    {% if app.user %}
+    <nav class="container">
+        <div>
+            <a href="{{ path('app_main') }}">
+                <img src="{{ asset('common/logo_simple/logo_064.webp') }}" alt="Logo du site">
+                Accueil
+            </a>
+        </div>
+        <div>
+            <label for="burger" class="menu-burger">
+                <div class="menu-burger-btn">
+                    <i class="bi bi-list"></i>
+                </div>
+            </label>
+        </div>
+    </nav>
+    {% else %}
+    <nav class="container">
+        <div>
+            <a href="{{ path('app_main') }}">
+                <img src="{{ asset('common/logo_simple/logo_064.webp') }}" alt="Logo du site">
+                Accueil
+            </a>
+        </div>
+        <div>
+            <a href="{{ path('app_reservation') }}">Réserver</a>
+            -
+            <a href="{{ path('verif') }}">Voir Réservation</a>
+            -
+            <a href="{{ path('app_contact') }}">Contact</a>
+        </div>
+    </nav>
+    {% endif %}
+</header>
+
+{% if app.user %}
+<div class="menu">
+    <input type="checkbox" id="burger">
+    <div class="menu-links">
+        <div class="container">
+            <a href="{{ path('app_reservation') }}">Réserver</a>
+            <a href="{{ path('verif') }}">Voir Réservation</a>
+            <a href="{{ path('app_user_index') }}">Profil</a>
+            {% if is_granted('ROLE_ADMIN') %}
+            <details>
+                <summary>
+                    Administration
+                </summary>
+                <a href="{{path('app_admin_user_index')}}">Utilisateur</a>
+                <a href="{{path('app_admin_airport_index')}}">Airport</a>
+                <a href="{{path('app_admin_parking_index')}}">Parking</a>
+                <a href="{{path('app_admin_place_index')}}">Places</a>
+                <a href="{{path('app_admin_resa_index')}}">Réservation</a>
+                <a href="{{path('app_admin_infos_index')}}">Informations</a>
+                <a href="{{path('app_admin_car_index')}}">Voiture</a>
+                <a href="{{path('app_admin_address_index')}}">Adresse</a>
+            </details>
+            {% endif %}
+            <a class="hovered" href="{{ path('app_logout') }}">Déconnexion</a>
+        </div>
+    </div>
+</div>
+{% endif %}
